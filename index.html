@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-<p align="center"><image id="topimage" width=150px height=150px><br><a id="link" style="font-size: 8px" align="left">sauce</a><br><a class="black">https://jakov.win/</a></p>
+<head>
+<meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+</head>
+<p align="center"><image id="topimage"><a id="link" style="font-size: 8px" align="left">sauce</a><br><a class="black">https://jakov.win/</a></p>
 <p align="center">
 <audio controls align="center" style="height: 20px" id="audio">
     <source src="https://files.catbox.moe/2hjpqo.mp3" type="audio/mpeg">
@@ -18,6 +21,16 @@ My socials:
 </p>
 
 <style>
+#topimage {
+    display: block;
+
+    width: min(40vw, 150px);
+    height: min(40vw, 150px);
+
+    object-fit: contain;
+
+    margin: 0 auto;
+}
 body {
 //    background-image: url("https://files.catbox.moe/902ygk.png");
     background-size: cover;
