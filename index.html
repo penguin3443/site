@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html>
-<p align="center">Welcome.</p>
+<p align="center"><image id="topimage" width=150px height=150px><br><a id="link" style="font-size: 8px" align="left">sauce</a><br><a class="black">https://jakov.win/</a></p>
+<p align="center">
+<audio controls align="center" style="height: 20px" id="audio">
+    <source src="https://files.catbox.moe/2hjpqo.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+</p>
+<p id="demo">money made: $0.0</p>
+<p class="p" id="demo2">
+My socials:
+<br>X/TWITTER: <a href="https://x.com/@chetnik2009">jakov🇹🇲</a>
+<br>DISCORD: <a class="blue">@goldenjakow </a>
+<br>CONTACT E-MAIL: <a href="mailto:walking_penguin7336@protonmail.com">walking_penguin7336@protonmail.com</a>
+<br>BITCHUTE: <a href="https://www.bitchute.com/profile/2SxRGOqcmfBs">Sanctuary ov Humor</a></p>
 <br>
-<p align="center" id="demo">money made: 0.0₡</p>
+</p>
+
 <style>
 body {
-    background-image: url("https://files.catbox.moe/902ygk.png");
+//    background-image: url("https://files.catbox.moe/902ygk.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.blue {color:#0000FF}
+.black {color:#000000}
+.p { margin: 5px 0 12px; line-height: 1.5; color:#AA0000;}
 </style>
 <script type="text/javascript">
+document.addEventListener("click", function() {
+document.getElementById("audio").play();
+}, { once: true });
+const imageIds = 
+[
+"https://files.catbox.moe/e35a7f.jpg", 
+"https://files.catbox.moe/p8paqu.jpg",
+"https://files.catbox.moe/r1b6um.jpg",
+"https://files.catbox.moe/qqigi4.jpg",
+"https://files.catbox.moe/z5ugsd.jpg",
+"https://files.catbox.moe/e2nfi6.jpg",
+];
 const moneyCounter = document.getElementById("demo");
+const image = document.getElementById("topimage");
+const imageLink = document.getElementById("link");
+image.src = imageIds[Math.min(Math.floor(imageIds.length * Math.random()), imageIds.length - 1)];
+imageLink.href = image.src;
 let money=0;
 let sum=0;
 const FPS = 10;
-const interval = 10;
+const interval = 100;
 setInterval(() => {
 sum %= 1000;
 sum += 1 / (1000 / interval) * FPS;
 let step = Math.floor(sum);
 money += Math.random() % 20;
-let message = `money made: ${money.toFixed(2)}₡`;
+let message = `money made: $${money.toFixed(2)}`;
 let index = step % (message.length - money.toFixed(2).length);
 message = message.slice(0, index) + message[index].toUpperCase() + message.slice(index + 1);
 moneyCounter.innerHTML = message;
