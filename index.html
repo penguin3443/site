@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<title id="title">JWINNY</title>
 <head>
 <meta name="viewport" charset="UTF-8"content="width=device-width, initial-scale=1.0">
 </head>
@@ -50,6 +50,7 @@ body {
 document.addEventListener("click", function() {
 document.getElementById("audio").play();
 }, { once: true });
+const TITLES = ["Jakov Win.", "Join Sanctuary ov Humor", "SoH.win", "jakov.win", "Noctulian 333"];
 const imageIds = 
 [
 "https://files.catbox.moe/e35a7f.jpg", 
@@ -67,11 +68,18 @@ imageLink.href = image.src;
 let money=0;
 let sum=0;
 const FPS = 10;
+const title = document.getElementById("title");
 const interval = 100;
+let TITLE = TITLES[Math.floor(Math.random() * TITLES.length)];
 setInterval(() => {
 sum %= 1000;
 sum += 1 / (1000 / interval) * FPS;
 let step = Math.floor(sum);
+title.innerHTML = TITLE.slice(0, step % (TITLE.length + 10) + 1);
+if (step % (TITLE.length + 10) == 0)
+{
+TITLE = TITLES[Math.floor(Math.random() * TITLES.length)];
+}
 money += Math.random() % 20;
 let message = `money made: $${money.toFixed(2)}`;
 let index = step % (message.length - money.toFixed(2).length);
